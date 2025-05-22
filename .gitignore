@@ -31,4 +31,4 @@
 *.out
 *.app
 
-./ex01/phonybooker
+ex01/phonybooker
