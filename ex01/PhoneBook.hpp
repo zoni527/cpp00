@@ -24,8 +24,8 @@ public:
 	~PhoneBook();
 
 private:
-	Contact			_contacts[8];
-	unsigned int	_index;
+	Contact		_contacts[8];
+	unsigned	_index;
 
 	void	_add();
 	void	_search();

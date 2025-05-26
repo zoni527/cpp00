@@ -1,0 +1,74 @@
+ADD
+John
+Doe
+Johnny D
+0123456789
+I wish my parents called me something else
+SEARCH
+0
+ADD
+Jane
+Doe
+Jany D
+9876543210
+I collect stamps
+SEARCH
+1
+ADD
+Pickachu
+Pickachu
+Pickachu
+9876543210
+..... pikachu
+SEARCH
+2
+ADD
+Ash
+Ketchum
+AK
+1
+I make Pokemons fight each other for entertainment
+SEARCH
+3
+ADD
+Mickey
+Mouse
+Disney Demon
+1337
+HAHA! (Pluto is my slave)
+SEARCH
+4
+ADD
+Maximilianus
+Verylongnlastnamus
+Maaaaaaaaaaaaaaaax
+MDDXIV
+I don't believe the gods exist
+SEARCH
+5
+ADD
+Mario
+Super
+Plumber boy
+123
+Luigi was adopted, he doesn't know
+SEARCH
+6
+ADD
+Urho
+Kekkonen
+Kekkis
+7777
+Finland has nukes
+SEARCH
+7
+ADD
+Hayao
+Miyazaki
+Grumpy McGrump anime uncle
+666
+Anime was a mistake
+SEARCH
+8
+SEARCH
+0

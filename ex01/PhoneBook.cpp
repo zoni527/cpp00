@@ -18,8 +18,10 @@
 static void			print_input_hint();
 static std::string	get_valid_string_input(std::string const &prompt);
 static std::string	col_format(std::string str);
-static unsigned int	get_index_from_user(unsigned int i);
+static unsigned		get_index_from_user(unsigned i);
 static void			print_contact_info(Contact const &contact);
+
+// -------------------------------------------------------------- public methods
 
 void PhoneBook::	run() {
 
@@ -42,7 +44,9 @@ void PhoneBook::	run() {
 		else if (input == "SEARCH")
 			this->_search();
 		else {
-			std::cout << "\nERROR: command not found\n\n";
+			std::cout << "\n";
+			if (!input.empty())
+				std::cout << "ERROR: command not found\n\n";
 			print_input_hint();
 		}
 	}
@@ -51,6 +55,8 @@ void PhoneBook::	run() {
 
 	std::cout <<"\nThank you for using PhonyBooker V042.420! \\^o_o^/" << std::endl;
 }
+
+// ------------------------------------------------------------- private methods
 
 void PhoneBook::	_add() {
 
@@ -77,22 +83,26 @@ void PhoneBook::	_add() {
 
 void PhoneBook::	_search() {
 
-	std::string		str;
-	unsigned int	index;
-	unsigned int	i;
+	std::string	str;
+	unsigned	index;
+	unsigned	i;
 
+	std::cout << "\n";
+	std::cout << "---------------------------------------------\n";
+	std::cout << "|     Index|First name| Last name|  Nickname|\n";
+	std::cout << "---------------------------------------------\n";
 	i = 0;
 	while (i < 8 && !this->_contacts[i].get_first_name().empty()) {
-		std::cout << std::right << std::setw(10) << std::to_string(i);
+		std::cout << "|" << std::right << std::setw(10) << std::to_string(i);
 		str = col_format(this->_contacts[i].get_first_name());
 		std::cout << "|" << std::right << std::setw(10) << str;
 		str = col_format(this->_contacts[i].get_last_name());
 		std::cout << "|" << std::right << std::setw(10) << str;
 		str = col_format(this->_contacts[i].get_nickname());
-		std::cout << "|" << std::right << std::setw(10) << str;
-		std::cout << "\n";
+		std::cout << "|" << std::right << std::setw(10) << str << "|\n";
 		++i;
 	}
+	std::cout << "---------------------------------------------" << std::endl;
 
 	if (i == 0) {
 		std::cout << "\nPhonebook is empty\n";
@@ -106,21 +116,21 @@ void PhoneBook::	_search() {
 	print_contact_info(_contacts[index]);
 }
 
-// -----------------------------------------------------------------------------
+// ---------------------------------------------------------------- constructors
 
 PhoneBook:: PhoneBook() {
 	_index = 0;
 }
 
-// -----------------------------------------------------------------------------
+// ------------------------------------------------------------------ destructor
 
 PhoneBook:: ~PhoneBook() {};
 
-// -----------------------------------------------------------------------------
+// ------------------------------------------------------------ static functions
 
 static void	print_input_hint() {
 	std::cout << "Recognized commands:\n";
-	std::cout << "------------------\n";
+	std::cout << "--------------------\n";
 	std::cout << std::right << std::setw(10) << "ADD";
 	std::cout << " -> save a new contact\n";
 	std::cout << std::right << std::setw(10) << "SEARCH";
@@ -158,10 +168,10 @@ static std::string	col_format(std::string str) {
 	return (str);
 }
 
-static unsigned int	get_index_from_user(unsigned int i) {
+static unsigned	get_index_from_user(unsigned entries) {
 
-	unsigned int	index;
-	std::string		str;
+	int			index;
+	std::string	str;
 
 	while (std::cin) {
 		std::cout << "\nEnter index > " << std::flush;
@@ -174,7 +184,7 @@ static unsigned int	get_index_from_user(unsigned int i) {
 			std::cout << "\nERROR: bad input\n";
 			continue;
 		}
-		if (index >= i) {
+		if (index < 0 || index >= static_cast<int>(entries)) {
 			std::cout << "\nERROR: index is out of range\n";
 			continue;
 		}
@@ -184,15 +194,16 @@ static unsigned int	get_index_from_user(unsigned int i) {
 }
 
 static void	print_contact_info(Contact const &contact) {
-	std::cout << std::setw(20) << "\nFirst name:";
+	std::cout << "\n";
+	std::cout << std::right << std::setw(20) << "First name: ";
 	std::cout << contact.get_first_name() << "\n";
-	std::cout << std::setw(20) << "Last name:";
+	std::cout << std::right << std::setw(20) << "Last name: ";
 	std::cout << contact.get_last_name() << "\n";
-	std::cout << std::setw(20) << "Nickname:";
+	std::cout << std::right << std::setw(20) << "Nickname: ";
 	std::cout << contact.get_nickname() << "\n";
-	std::cout << std::setw(20) << "Phone number:";
+	std::cout << std::right << std::setw(20) << "Phone number: ";
 	std::cout << contact.get_phone_number() << "\n";
-	std::cout << std::setw(20) << "Darkest secret:";
+	std::cout << std::right << std::setw(20) << "Darkest secret: ";
 	std::cout << contact.get_darkest_secret() << "\n";
 	std::cout << std::endl;
 }
