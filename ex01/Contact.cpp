@@ -12,49 +12,44 @@
 
 #include "Contact.hpp"
 
-std::string Contact:: get_first_name() const {
+std::string Contact:: get_first_name( void ) const {
 	return this->_first_name;
 }
 
-std::string Contact:: get_last_name() const {
+std::string Contact:: get_last_name( void ) const {
 	return this->_last_name;
 }
 
-std::string Contact:: get_nickname() const {
+std::string Contact:: get_nickname( void ) const {
 	return this->_nickname;
 }
 
-std::string Contact:: get_phone_number() const {
+std::string Contact:: get_phone_number( void ) const {
 	return this->_phone_number;
 }
 
-std::string Contact:: get_darkest_secret() const {
+std::string Contact:: get_darkest_secret( void ) const {
 	return this->_darkest_secret;
 }
 
 // -----------------------------------------------------------------------------
 
-void	Contact:: set_first_name(std::string const &str) {
+void Contact:: set_first_name( std::string const &str ) {
 	this->_first_name = str;
 }
 
-void	Contact:: set_last_name(std::string const &str) {
+void Contact:: set_last_name( std::string const &str ) {
 	this->_last_name = str;
 }
 
-void	Contact:: set_nickname(std::string const &str) {
+void Contact:: set_nickname( std::string const &str ) {
 	this->_nickname = str;
 }
 
-void	Contact:: set_phone_number(std::string const &str) {
+void Contact:: set_phone_number( std::string const &str ) {
 	this->_phone_number = str;
 }
 
-void	Contact:: set_darkest_secret(std::string const &str) {
+void Contact:: set_darkest_secret( std::string const &str ) {
 	this->_darkest_secret = str;
 }
-
-// -----------------------------------------------------------------------------
-
-Contact:: Contact() {}
-Contact:: ~Contact() {}

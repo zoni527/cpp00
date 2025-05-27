@@ -10,20 +10,16 @@
 #                                                                              #
 # **************************************************************************** #
 
-NAME		:= accounting
+NAME		:= megaphone
 
 CC			:= c++
-CFLAGS		:= -Wall -Wextra -Werror -std=c++98
+CFLAGS		:= -Wall -Wextra -Werror -std=c++11
 DEBUG_FLAGS	:= -g
-# ---------------------------------------------------------------------------- #
-INC_DIR		:= .
-HEADERS		:= $(INC_DIR)/Account.hpp
 # ---------------------------------------------------------------------------- #
 SRC_DIR	:=	.
 OBJ_DIR	:=	./obj
 # ---------------------------------------------------------------------------- #
-SRC :=	$(SRC_DIR)/Account.cpp \
-		$(SRC_DIR)/tests.cpp
+SRC :=	$(SRC_DIR)/megaphone.cpp
 # ---------------------------------------------------------------------------- #
 OBJ :=	$(patsubst $(SRC_DIR)/%.cpp, $(OBJ_DIR)/%.o, $(SRC))
 
@@ -31,12 +27,12 @@ OBJ :=	$(patsubst $(SRC_DIR)/%.cpp, $(OBJ_DIR)/%.o, $(SRC))
 # ---------------------------------------------------------------------------- #
 all: $(NAME)
 
-$(NAME): $(OBJ) $(HEADERS)
-	$(CC) $(CFLAGS) -I $(INC_DIR) $(OBJ) -o $@
+$(NAME): $(OBJ)
+	$(CC) $(CFLAGS) $(OBJ) -o $@
 
-$(OBJ_DIR)/%.o: $(SRC_DIR)/%.cpp $(HEADERS)
+$(OBJ_DIR)/%.o: $(SRC_DIR)/%.cpp
 	@mkdir -p $(@D)
-	$(CC) $(CFLAGS) -I $(INC_DIR) -c $< -o $@
+	$(CC) $(CFLAGS) -c $< -o $@
 # ---------------------------------------------------------------------------- #
 clean:
 	rm -rf $(OBJ_DIR)

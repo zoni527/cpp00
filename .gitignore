@@ -31,4 +31,11 @@
 *.out
 *.app
 
+*.log
+*.temp
+*.txt
+./*/obj
+ex00/megaphone
 ex01/phonybooker
+ex02/*.log
+ex03/accounting

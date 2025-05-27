@@ -10,25 +10,23 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PHONEBOOK_HPP
-# define PHONEBOOK_HPP
+#pragma once
 
-# include "Contact.hpp"
+#include "Contact.hpp"
+
+#define NUM_CONTACTS	8
 
 class PhoneBook {
 
 public:
-	void	run();
+	void	run( void );
 
-	PhoneBook();
-	~PhoneBook();
+	PhoneBook( void );
 
 private:
-	Contact		_contacts[8];
+	Contact		_contacts[NUM_CONTACTS];
 	unsigned	_index;
 
-	void	_add();
-	void	_search();
+	void	_add( void );
+	void	_search( void );
 };
-
-#endif
